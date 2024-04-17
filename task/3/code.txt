@@ -1,0 +1,38 @@
+int main() {
+    int t;
+    scanf("%d", &t);
+
+    for (int t_sets = 0; t_sets < t; t_sets++) {
+        unordered_array_set amount = unordered_array_set_create(26);
+        for (int i = 0; i < 26; i++) {
+            amount.data[i] = 0;
+            amount.size++;
+        }
+
+        char str[1000];
+        scanf("%s", str);
+
+        size_t size_str = strlen(str);
+        for (size_t i = 0; i < size_str; i++) {
+            size_t char_index = str[i] - 97;
+            amount.data[char_index]++;
+        }
+
+        bool is_palindrome = true;
+        for (size_t i = 0; i < 26; i++) {
+            if (amount.data[i] != 0 && amount.data[i] != size_str)
+                is_palindrome = false;
+        }
+
+        if (is_palindrome)
+            printf("-1\n");
+        else {
+            for (int i = 0; i < 26; i++)
+                for (int j = 0; j < amount.data[i]; j++)
+                    printf("%c", 'a' + i);
+            printf("\n");
+        }
+    }
+
+    return 0;
+}

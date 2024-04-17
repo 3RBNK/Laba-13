@@ -1,0 +1,35 @@
+int counterCouple(int n) {
+    return (n * (n - 1)) / 2;
+}
+
+
+int main() {
+    unordered_array_set amount = unordered_array_set_create(26);
+    for (size_t i = 0; i < 26; i++) {
+        amount.data[i] = 0;
+        amount.size++;
+    }
+
+    int n;
+    scanf("%d", &n);
+
+    for (int n_sets = 0; n_sets < n; n_sets++) {
+        char s[20];
+        scanf("%s", s);
+
+        size_t char_index = s[0] - 97;
+        amount.data[char_index]++;
+    }
+
+    int result = 0;
+    for (size_t i = 0; i < 26; i++) {
+        int amount_first_class = amount.data[i] / 2;
+        int amount_second_class = amount.data[i] % 2 == 0 ? amount.data[i] / 2 : amount.data[i] / 2 + 1;
+
+        result += counterCouple(amount_first_class) + counterCouple(amount_second_class);
+    }
+
+    printf("%d\n", result);
+
+    return 0;
+}

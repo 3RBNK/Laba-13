@@ -1,0 +1,28 @@
+int main() {
+    unordered_array_set amount = unordered_array_set_create(21);
+    for (size_t i = 0; i < 21; i++) {
+        amount.data[i] = 0;
+        amount.size++;
+    }
+
+    int n;
+    scanf("%d", &n);
+
+    for (int n_sets = 0; n_sets < n; n_sets++) {
+        long long int x;
+        scanf("%lld", &x);
+
+        amount.data[x + 10]++;
+    }
+
+    long long int result = 0;
+    for (size_t i = 0; i < 10; i++) {
+        result  += amount.data[i] * amount.data[20 - i];
+    }
+
+    result += (amount.data[10] * (amount.data[10] - 1)) / 2;
+
+    printf("%lld", result);
+
+    return 0;
+}

@@ -1,0 +1,62 @@
+
+int getWeightRocket(const int a[], int pos, int k) {
+    int result = pos + 1;
+    int amount_stages = 1;
+    int amount_letter = 26;
+    int i = pos + 2;
+    int last = pos;
+
+    while (amount_stages < k && i < amount_letter) {
+        if (a[i] != 0 && i - last > 1) {
+            result += i + 1;
+            amount_stages++;
+            last = i;
+        }
+
+        i++;
+    }
+
+    if (amount_stages != k)
+        return -1;
+    else
+        return result;
+}
+
+
+
+
+
+
+int main() {
+    unordered_array_set amount = unordered_array_set_create(26);
+    for (size_t i = 0; i < 26; i++) {
+        amount.data[i] = 0;
+        amount.size++;
+    }
+
+    int n, k;
+    scanf("%d %d", &n, &k);
+
+    char str[n];
+    scanf("%s", str);
+
+    for (size_t i = 0; i < n; i++) {
+        size_t char_index = str[i] - 97;
+
+        amount.data[char_index]++;
+    }
+
+    int index_first_element = 0;
+    for (int i = 0; i < 26; i++) {
+        if (amount.data[i] != 0) {
+            index_first_element = i;
+            break;
+        }
+    }
+
+    int result = getWeightRocket(amount.data, index_first_element, k);
+
+    printf("%d", result);
+
+    return 0;
+}

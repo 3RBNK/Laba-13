@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "laba_op_13",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "laba_op_13::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-laba_op_13-Debug-2cc850f4231d28f681c8.json",
+					"name" : "laba_op_13",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/\u043c\u0443\u0441\u043e\u0440/\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043a\u0438/\u043e\u043f/laba_op_13/cmake-build-debug",
+		"source" : "D:/\u043c\u0443\u0441\u043e\u0440/\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043a\u0438/\u043e\u043f/laba_op_13"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

@@ -1,0 +1,35 @@
+bool more2(const int a[], const size_t n) {
+    for (size_t i = 0; i < n; i++)
+        if (a[i] >= 2)
+            return true;
+    return false;
+}
+
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    char str[n];
+    scanf("%s", str);
+
+    unordered_array_set amount_color = unordered_array_set_create(26);
+    for (size_t i = 0; i < 26; i++) {
+        amount_color.data[i] = 0;
+        amount_color.size++;
+    }
+
+
+    for (size_t i = 0; i < n; i++) {
+        int char_index = str[i] - 97;
+
+        amount_color.data[char_index]++;
+    }
+
+    if (n == 1 || more2(amount_color.data, amount_color.size))
+        printf("YES");
+    else
+        printf("NO");
+
+    return 0;
+}

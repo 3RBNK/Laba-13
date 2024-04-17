@@ -1,0 +1,33 @@
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    // считаем первое множество. Будем пересекать остальные множества с этим
+    int r;
+    scanf("%d", &r);
+
+    unordered_array_set set = unordered_array_set_create(r);
+    for (int i = 0 ; i < r; i++) {
+        int x;
+        scanf("%d", &x);
+
+        unordered_array_set_insert(&set, x);
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        scanf("%d", &r);
+
+        unordered_array_set subset = unordered_array_set_create(r);
+        for (int j = 0 ; j < r; j++) {
+            int x;
+            scanf("%d", &x);
+
+            unordered_array_set_insert(&subset, x);
+        }
+
+        set = unordered_array_set_intersection(set, subset);
+    }
+
+    for (int i = 0; i < set.size; i++)
+        printf("%d ", set.data[i]);
+}

@@ -1,0 +1,25 @@
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    ordered_array_set set = ordered_array_set_create(n);
+    for (int i = 1; i < n + 1; i++) {
+        set.data[i - 1] = i;
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        int x;
+        scanf("%d", &x);
+
+        set.data[x - 1] = 0;
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (set.data[i] != 0) {
+            printf("%d", i + 1);
+            break;
+        }
+    }
+
+    return 0;
+}

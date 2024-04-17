@@ -1,0 +1,39 @@
+int getMax(const int a[], const size_t n) {
+    int max = a[0];
+
+    for (size_t i = 0; i < n; i++)
+        if (a[i] > max)
+            max = a[i];
+
+    return max;
+}
+
+
+int main() {
+    unordered_array_set amount = unordered_array_set_create(1001);
+    for (size_t i = 0; i < 1001; i++) {
+        amount.data[i] = 0;
+        amount.size++;
+    }
+
+    int n;
+    scanf("%d", &n);
+
+    for (size_t i = 0; i < n; i++) {
+        int l;
+        scanf("%d", &l);
+
+        amount.data[l]++;
+    }
+
+    int max_amount = getMax(amount.data, amount.size);
+
+    int amount_element = 0;
+    for (size_t i = 0; i < 1001; i++)
+        if (amount.data[i] != 0)
+            amount_element++;
+
+    printf("%d %d\n", max_amount, amount_element);
+
+    return 0;
+}

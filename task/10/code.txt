@@ -1,0 +1,32 @@
+int main() {
+    unordered_array_set amount = unordered_array_set_create(26);
+    for (size_t i = 0; i < 26; i++) {
+        amount.data[i] = 0;
+        amount.size++;
+    }
+
+    int n;
+    scanf("%d", &n);
+
+    char str[n];
+    scanf("%s", str);
+
+    for (size_t i = 0; i < n; i++) {
+        size_t char_index = str[i] - 97;
+
+        amount.data[char_index]++;
+    }
+
+    int res = 0;
+    for (size_t i = 0; i < 26; i++) {
+        if (amount.data[i] > 1)
+            res += amount.data[i] - 1;
+    }
+
+    if (n > 26)
+        printf("-1");
+    else
+        printf("%d", res);
+
+    return 0;
+}

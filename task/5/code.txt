@@ -1,0 +1,41 @@
+int getMax(const int a[], const size_t n) {
+    int max = a[0];
+
+    for (size_t i = 1; i < n; i++)
+        if (a[i] > max)
+            max = a[i];
+
+    return max;
+}
+
+
+int main() {
+    int n, k;
+    scanf("%d %d", &n, &k);
+
+    char str[n];
+    scanf("%s", str);
+
+    unordered_array_set amount_balls = unordered_array_set_create(26);
+    for (size_t i = 0; i < 26; i++) {
+        amount_balls.data[i] = 0;
+        amount_balls.size++;
+    }
+
+
+    for (size_t i = 0; i < n; i++) {
+        int char_index = str[i] - 97;
+
+        amount_balls.data[char_index]++;
+    }
+
+
+    int max_amount = getMax(amount_balls.data, amount_balls.size);
+
+    if (max_amount <= k)
+        printf("YES");
+    else
+        printf("NO");
+
+    return 0;
+}
